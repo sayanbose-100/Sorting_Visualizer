@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quantico:wght@400;700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,9 +25,33 @@
             <button>Docs</button>
         </nav>
 
-        <!-- Selction of control buttons -->
+        <!-- Selection of control buttons -->
         <section class="controls">
-            
+
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Bubble Sort</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Merge Sort</li>
+                    <li>Insertion Sort</li>
+                    <li class="active">Bubble Sort</li>
+                    <li>Quick Sort</li>
+                    <li>Selection Sort</li>
+                </ul>
+            </div>
+
+            <div class="control-btn">
+                <button class="start-btn btn">Start/Pause</button>
+                <button class="randomize-btn btn">Randomize Data</button>
+                <button class="speed-btn btn">Increase Speed</button>
+            </div>
+
+            <div class="dark-mode">
+                <button class="dark-mode-btn">Dark/Light Mode</button>
+            </div>
+
         </section>
     </header>
 
@@ -35,6 +62,7 @@
     <footer>
         <!-- Footer part for all kinds of static info -->
     </footer>
+    <script src="./scripts/ui.js"></script>
 </body>
 
 </html>

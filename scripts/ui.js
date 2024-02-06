@@ -25,3 +25,17 @@ options.forEach(option => {
         option.classList.add('active')
     })
 })
+
+
+/* customization for speed button */
+const speed_change = (btn) => {
+    let innerVal = btn.innerText
+    if (innerVal == "Speed - 1x") innerVal = "Speed - 2x"
+    else if (innerVal == "Speed - 2x") innerVal = "Speed - 3x"
+    else if (innerVal == "Speed - 3x") innerVal = "Speed - 1x"
+    btn.innerText = innerVal
+}
+const speed_btn = document.querySelector('.speed-btn')
+speed_btn.addEventListener('click',() => {
+    speed_change(speed_btn);
+})

@@ -56,23 +56,23 @@ section > div.dropdown * {
   box-sizing: border-box;
 }
 section > div.dropdown > div.select {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px #2a2f3b solid;
+  border: 2px #0f1035 solid;
   border-radius: 0.5em;
   padding: 13px;
   cursor: pointer;
   transition: 0.3s;
 }
 .select-clicked {
-  border: 2px #26489a solid;
-  box-shadow: 0 0 0.8em #26489a;
+  border: 2px #7fc7d9 solid;
+  box-shadow: 0 0 0.8em #0f1035;
 }
 section > div.dropdown > div.select:hover {
-  background: #363a43;
+  background: #0f1035;
   color: #fff;
 }
 section > div.dropdown > div.select > div.caret {
@@ -89,14 +89,14 @@ section > div.dropdown > div.select > div.caret {
 section > div.dropdown > ul.menu {
   width: 100%;
   list-style: none;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 15px;
   padding: 0.2em 0.5em;
-  background: #323741;
-  border: 1px solid #363a43;
+  background: #fff;
+  border: 1px solid #7fc7d9;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
   border-radius: 0.5em;
-  color: #9fa5b5;
+  color: #000;
   position: absolute;
   top: 3em;
   display: none;
@@ -115,10 +115,10 @@ section > div.dropdown > ul.menu > li {
   cursor: pointer;
 }
 section > div.dropdown > ul.menu > li:hover {
-  background: #2a2d35;
+  background: #dfdfdf;
 }
 section > div.dropdown > ul.menu > li.active {
-  background: #23242a;
+  background: #dfdfdf;
 }
 
 /* selection of sorting algorithm sections end */
@@ -131,39 +131,58 @@ section > div.control-btn {
   height: 100%;
 }
 section > div.control-btn > .btn {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   background-color: white;
   border: 2px #638889 solid;
   color: black;
-  height: 50%;
+  height: 40%;
   align-self: center;
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s;
 }
-section > div.control-btn > .btn:hover{
+section > div.control-btn > .btn:hover {
   background-color: #638889;
-  color:#23242a;
+  color: #fff;
   box-shadow: 0 0 0.8em #638889;
 }
-.start-btn{
-  
+.start-btn {
 }
-.randomize-btn{
-  
+.randomize-btn {
 }
-.speed-btn{
-  
+.speed-btn {
 }
 
-section > div.dark-mode{
+section > div.dark-mode {
   justify-self: center;
   align-self: center;
 }
 section > div.dark-mode > button {
   background-color: black;
   color: white;
-  padding: 20px;
+  padding: 15px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+/* customization for the array bars */
+main {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 50vh;
+}
+.sorting-bars {
+  border-top: 2px solid rgb(40, 231, 113);
+  padding: 10px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+  grid-template-columns: repeat(60, 1fr);
+  gap: 8px;
+  transform: rotate(-180deg);
+}
+.bars {
+  background-color: rgb(12, 154, 236);
+  width: 10px;
 }

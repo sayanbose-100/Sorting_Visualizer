@@ -1,18 +1,9 @@
-const swap = (bar1, bar2) => {
-    let temp_height = bar1.style.height
-    console.log(typeof temp_height);
-    bar1.style.height = bar2.style.height
-    bar2.style.height = temp_height
-}
+import {
+    swap,
+    extractHeight
+} from '../commonOps.js'
 
-const extractHeight = (barObj) => {
-    let height = barObj.style.height
-    let pos = height.indexOf("p")
-    let height_val = Number(height.substring(0,pos))
-    return height_val
-}
-
-function bubble_sort_bars() {
+export async function bubble_sort_bars() {
     const bars = document.querySelectorAll('.bar')
     for (let i = 0; i < bars.length; i++) {
         for (let j = 0; j < bars.length - i - 1; j++) {
@@ -24,14 +15,14 @@ function bubble_sort_bars() {
                 bar1.style.backgroundColor = "red"
                 bar2.style.backgroundColor = "red"
                 swap(bar1, bar2)
+                await new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve()
+                    }, 15);
+                })
             }
             bar1.style.backgroundColor = "rgb(12, 154, 236)"
             bar2.style.backgroundColor = "rgb(12, 154, 236)"
         }
     }
 }
-
-const start_btn = document.querySelector('.start-btn')
-start_btn.addEventListener('click', () => {
-    bubble_sort_bars()
-})

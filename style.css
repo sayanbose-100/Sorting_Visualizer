@@ -182,7 +182,7 @@ main {
   gap: 8px;
   transform: rotate(-180deg);
 }
-.bars {
+.bar {
   background-color: rgb(12, 154, 236);
   width: 10px;
 }

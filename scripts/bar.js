@@ -9,11 +9,11 @@ const create_bars = () => {
     for (let j = 0; j < 100; j++) {
         randomData.push(getRandomInt(1, 100));
     }
-
+    
     // creating the bars and pushing it to the sorting-bars div
     for (let i = 0; i < 60; i++) {
         const bar_div = document.createElement('div')
-        bar_div.classList.add('bars')
+        bar_div.classList.add('bar')
         bar_div.style.height = `${randomData[i]}px`
         // const val = document.createElement('p')
         // val.innerHTML = `${randomData[i]}`

@@ -6,12 +6,12 @@ const bar_area = document.querySelector('.sorting-bars')
 const create_bars = () => {
     let randomData = [];
 
-    for (let j = 0; j < 100; j++) {
-        randomData.push(getRandomInt(1, 100));
+    for (let j = 0; j < 200; j++) {
+        randomData.push(getRandomInt(1, 200));
     }
     
     // creating the bars and pushing it to the sorting-bars div
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 200; i++) {
         const bar_div = document.createElement('div')
         bar_div.classList.add('bar')
         bar_div.style.height = `${randomData[i]}px`

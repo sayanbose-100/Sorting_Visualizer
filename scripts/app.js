@@ -1,6 +1,8 @@
 import {
-    bubble_sort_bars
-} from './sorting/bubble.js'
+    bubble_sort_bars,
+    insertion_sort_bars,
+    merge_sort_bars
+} from './sorting/sort.js'
 
 const active_technique = document.querySelector('.active')
 const selected_sorting = document.querySelector('.selected').innerHTML
@@ -14,7 +16,7 @@ const start_btn = document.querySelector('.start-btn')
 switch (selected_sorting) {
     case "Bubble Sort":
         start_btn.addEventListener('click', () => {
-            bubble_sort_bars();
+            merge_sort_bars();
         });
         break;
     // case "Merge Sort":

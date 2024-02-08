@@ -19,7 +19,7 @@ export async function bubble_sort_bars() {
                 await new Promise((resolve, reject) => {
                     setTimeout(() => {
                         resolve()
-                    }, 0.5);
+                    }, );
                 })
             }
             bar1.style.backgroundColor = "rgb(12, 154, 236)"
@@ -57,71 +57,98 @@ export async function insertion_sort_bars() {
     }
 }
 
-async function merger(bars, leftBars, rightBars) {
-    let len = bars.length
-    let leftBars_len = leftBars.length
-    let rightBars_len = rightBars.length
-    let i, l, r
-    i = l = r = 0
+async function merger(bars, l, m, r) {
+    let len = bars.length;
+    let L = []
+    let R = []
+    let i, j, k
+    for (let i = 0; i < len; i++) {
+        if (i <= m) L.push(bars[i])
+        else R.push(bars[i])
+    }
+    i = j = 0
+    k = l
     let bar1, bar2
-
-    while (l < leftBars_len && r < rightBars_len) {
-        bar1 = leftBars[l]
-        bar2 = rightBars[r]
+    while (i < L.length && j < R.length) {
+        bar1 = L[i]
+        bar2 = R[j]
         let bar1_h = extractHeight(bar1)
         let bar2_h = extractHeight(bar2)
-        if (bar1_h < bar2_h) {
-            bars[i].style.height = bar1_h
+        if (bar1_h <= bar2_h) {
+            bars[k].style.height = bar1_h
             i++
-            l++
         }
         else {
-            bars[i].style.height = bar2_h
-            i++
-            r++
+            bars[k].style.height = bar2_h
+            j++
         }
-        await new Promise((resolve,reject)=> {
+        k++
+        await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve()
-            }, 200);
+            },);
         })
     }
-    while (l < leftBars_len) {
-        bars[i].style.height = leftBars[l].style.height
+    while (i < L.length) {
+        bars[k].style.height = L[i].style.height
         i++
-        l++
-        await new Promise((resolve,reject)=> {
+        k++
+        await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve()
-            }, 200);
+            },);
         })
     }
-    while (r < rightBars_len) {
-        bars[i].style.height = rightBars[r].style.height
-        i++
-        r++
-        await new Promise((resolve,reject)=> {
+    while (j < R.length) {
+        bars[k].style.height = R[j].style.height
+        j++
+        k++
+        await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve()
-            }, 200);
+            },);
         })
     }
 }
-const merge_sort = (bars) => {
-    let len = bars.length
-    if (len <= 1) return
-    let mid = len / 2
-    let leftBars = []
-    let rightBars = []
-    for (let i = 0; i < len; i++) {
-        if (i < mid) leftBars.push(bars[i])
-        else rightBars.push(bars[i])
+async function merge_sort(bars, l, r) {
+    if (bars.length <= 1) return
+    if (l < r) {
+        let mid = l + (r - l) / 2
+        merge_sort(bars, l, mid)
+        merge_sort(bars, mid + 1, r)
+        merger(bars, l, mid, r)
     }
-    merge_sort(leftBars)
-    merger(bars, leftBars, rightBars)
-    merge_sort(rightBars)
 }
 export function merge_sort_bars() {
     const bars = document.querySelectorAll('.bar')
-    merge_sort(bars)
+    console.log(bars);
+    merge_sort(bars, 0, bars.length)
+}
+
+export async function selection_sort_bars() {
+    const bars = document.querySelectorAll('.bar')
+    for (let i = 0; i < bars.length; i++) {
+        let min = bars[i]
+        min.style.backgroundColor = "green"
+        let pos = 0
+        for (let j = i + 1; j < bars.length; j++) {
+            if (extractHeight(bars[j]) < extractHeight(min)) {
+                min = bars[j]
+                min.style.backgroundColor = "red"
+                pos = j
+            }
+        }
+        if (min != bars[i]) {
+            swap(bars[i], bars[pos])
+        }
+        await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, );
+        })
+    }
+}
+
+export function quick_sort_bars(){
+
 }

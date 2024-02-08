@@ -22,63 +22,100 @@
 // }
 
 /* merge sort */
-const merge = (arr,leftArray,rightArray) => {
-    let len = arr.length
-    let left_len = len/2
-    let right_len = len-left_len
+// const merge = (arr,leftArray,rightArray) => {
+//     let len = arr.length
+//     let left_len = len/2
+//     let right_len = len-left_len
 
-    // indices
-    let i ,l,r
-    i=l=r=0
-    while(l < left_len && r < right_len) {
-        if(leftArray[l] < rightArray[r]) {
-            arr[i] = leftArray[l]
-            i++
-            l++
+//     // indices
+//     let i ,l,r
+//     i=l=r=0
+//     while(l < left_len && r < right_len) {
+//         if(leftArray[l] < rightArray[r]) {
+//             arr[i] = leftArray[l]
+//             i++
+//             l++
+//         }
+//         else {
+//             arr[i] = rightArray[r]
+//             i++
+//             r++
+//         }
+//     }
+//     while(l < left_len){
+//         arr[i] = leftArray[l]
+//         i++
+//         l++
+//     }
+//     while(r < right_len){
+//         arr[i] = rightArray[r]
+//         i++
+//         r++
+//     }
+// }
+
+// const mergeSort = (arr) => {
+//     let len = arr.length
+//     if(len <= 1) return
+
+//     let mid = len/2
+//     let leftArray = []
+//     let rightArray = []
+
+//     let i = 0
+//     for(; i < len; i++) {
+//         if(i < mid) leftArray.push(arr[i])
+//         else {
+//             rightArray.push(arr[i])
+//         }
+//     }
+
+//     mergeSort(leftArray)
+//     mergeSort(rightArray)
+//     merge(arr,leftArray,rightArray)
+// }
+
+// arr = [8,2,5,3,4,7,6,1]
+// let lb = 0;
+// let ub = arr.length;
+// mergeSort(arr)
+// arr.forEach(element => {
+//     console.log(element);
+// });
+
+
+
+/* Selection Sort */
+let a = [20, 12, 10, 15, 2]
+for (let i = 0; i < a.length; i++) {
+    let min = a[i]
+    let pos = 0
+    for (j = i + 1; j < a.length; j++) {
+        if (a[j] < min) {
+            min = a[j]
+            pos = j
         }
-        else {
-            arr[i] = rightArray[r]
-            i++
-            r++
-        }
     }
-    while(l < left_len){
-        arr[i] = leftArray[l]
-        i++
-        l++
+    console.log(pos);
+    if (min != a[i]) {
+        let temp = a[i]
+        a[i] = a[pos]
+        a[pos] = temp
     }
-    while(r < right_len){
-        arr[i] = rightArray[r]
-        i++
-        r++
-    }
+    console.log(a);
 }
 
-const mergeSort = (arr) => {
-    let len = arr.length
-    if(len <= 1) return
 
-    let mid = len/2
-    let leftArray = []
-    let rightArray = []
 
-    let i = 0
-    for(; i < len; i++) {
-        if(i < mid) leftArray.push(arr[i])
-        else {
-            rightArray.push(arr[i])
-        }
-    }
 
-    mergeSort(leftArray)
-    mergeSort(rightArray)
-    merge(arr,leftArray,rightArray)
-}
 
-arr = [8,2,5,3,4,7,6,1]
-let lb = 0;
-let ub = arr.length;
-mergeSort(arr)
-arr.forEach(element => {
-    console.log(element);
-});
+
+
+
+
+
+
+
+
+
+

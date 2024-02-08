@@ -178,9 +178,10 @@ main {
   display: grid;
   justify-self: center;
   align-self: center;
-  grid-template-columns: repeat(200, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(500, 1fr);
+  /* gap: 2px; */
   transform: rotate(-180deg);
+  transform: rotateX(-180deg);
 }
 .bar {
   background-color: rgb(12, 154, 236);
